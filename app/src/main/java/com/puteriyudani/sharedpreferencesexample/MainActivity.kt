@@ -1,6 +1,7 @@
 package com.puteriyudani.sharedpreferencesexample
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -11,7 +12,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val pref = getPreferences(Context.MODE_PRIVATE)
+        val filename = "$packageName TESTFILE"
+        val pref = getSharedPreferences(filename, Context.MODE_PRIVATE)
         btnsave.setOnClickListener {
             val editor = pref.edit()
             editor.putString("lastname", txtlastname.text.toString())
@@ -25,14 +27,17 @@ class MainActivity : AppCompatActivity() {
             val moutput = "$mfirstname $mlastname"
             txtoutput.text = moutput
         }
+        btnSecondActivity.setOnClickListener{
+            val intent = Intent(this@MainActivity,
+                    SecondActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onResume() {
         super.onResume()
         txtfirstname.setText("")
         txtlastname.setText("")
-        txtfirstname.setHint("first name")
-        txtlastname.setHint("last name")
         txtoutput.setText("")
     }
 }

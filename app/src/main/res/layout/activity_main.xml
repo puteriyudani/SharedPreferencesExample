@@ -1,61 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:padding="16dp">
 
-    <Button
-        android:id="@+id/btnsave"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/llInputText"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="@string/save"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnload"
-        app:layout_constraintStart_toStartOf="parent" />
-    <Button
-        android:id="@+id/btnload"
-        android:layout_width="wrap_content"
+        android:layout_below="@+id/tvJudul"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+        <EditText
+            android:id="@+id/txtfirstname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/first_name"
+            android:inputType="textPersonName"
+            android:autofillHints="" />
+        <EditText
+            android:id="@+id/txtlastname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="@string/last_name"
+            android:inputType="textPersonName"
+            android:autofillHints="" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/llButton"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="11dp"
-        android:layout_marginTop="27dp"
-        android:text="@string/load"
-        app:layout_constraintEnd_toEndOf="@+id/txtlastname"
-        app:layout_constraintTop_toBottomOf="@+id/txtlastname" />
-    <EditText
-        android:id="@+id/txtfirstname"
-        android:layout_width="wrap_content"
+        android:layout_below="@+id/llInputText"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:weightSum="10">
+        <Button
+            android:id="@+id/btnsave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="@string/save"/>
+        <Button
+            android:id="@+id/btnload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="@string/load"/>
+        <Button
+            android:id="@+id/btnSecondActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="@string/next_activity"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tvJudul"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/first_name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints="" />
-    <EditText
-        android:id="@+id/txtlastname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/last_name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtfirstname"
-        android:autofillHints="" />
+        android:layout_marginTop="30dp"
+        android:text="@string/shared_preferences"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold" />
     <TextView
         android:id="@+id/txtoutput"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="183dp"
-        android:layout_marginStart="16dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
         android:text="@string/textview"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textAlignment="center"
+        android:textSize="36sp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
